@@ -19,3 +19,22 @@ bool detectLoop(Node* head) {
         
     }
 
+//here tc is O(n) and sc is O(1) achived using slow and fast method
+
+bool detectLoop(Node* head) {
+        
+        Node *slow = head;
+        Node *fast = head;
+        
+        while(fast != NULL && fast->next != NULL){
+            slow = slow->next;
+            fast = fast->next->next;
+            
+            if(slow == fast){
+                return true;
+            }
+        }
+            
+        return false;
+    }
+
